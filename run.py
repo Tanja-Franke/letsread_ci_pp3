@@ -1,7 +1,9 @@
+import pandas as pd
 import colorama
 from colorama import Fore, Back, Style
 colorama.init(autoreset=True)
 from datetime import date
+from art import *
 import gspread
 from google.oauth2.service_account import Credentials
 SCOPE = [
@@ -14,18 +16,18 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT=gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('lets_read')
 
-logo= "" _          _   __                         _ 
- | |        | | /_/                        | |
- | |     ___| |_   ___   _ __ ___  __ _  __| |
- | |    / _ \ __| / __| | '__/ _ \/ _` |/ _` |
- | |___|  __/ |_  \__ \ | | |  __/ (_| | (_| |
- |______\___|\__| |___/ |_|  \___|\__,_|\__,_|
-
-""
-
-
+def get_entries(data, worksheet):
+    #get entries from user
+    while True:
+        print("Please enter Your name.")
+        input_name=input("Enter Your Name here:  \n)")
+        worksheet=Sheet.worksheet({input_name})
+        progress={inputname}.get_all_values
+        print(progress)
+        
 example = SHEET.worksheet('example')
-data = example.get_all_values(0,1)
-print(logo)
-print(Style.BRIGHT+Fore.BLUE+'Welcome to Bible reading habit tracker!')
+data = example.get_all_values()
+print(welcome_msg[1])
+print(welcome_msg[0])
+print(Style.BRIGHT+Fore.BLUE+'Welcome to Let´s Read!/n Your Bible reading habit tracker!')
 print(data)
